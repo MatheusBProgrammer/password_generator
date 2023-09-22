@@ -4,7 +4,7 @@ let sizePassword = document.querySelector("#valor");
 let password = document.querySelector("#password");
 let containerPassword = document.querySelector("#container-password");
 let hide = document.querySelector("#hide");
-
+let tooltip = document.querySelector(".tooltip");
 let charset =
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*-_=+.?";
 let novasenha = "";
@@ -22,5 +22,12 @@ function generatePassword() {
   }
   containerPassword.classList.remove("hide");
   password.innerHTML = pass;
+  novasenha = pass;
+  console.log(novasenha);
+}
+function copyPassword() {
+  console.log(novasenha);
+  navigator.clipboard.writeText(novasenha);
 }
 buttonElement.addEventListener("click", generatePassword);
+password.addEventListener("click", copyPassword);
